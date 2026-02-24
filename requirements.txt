@@ -1,0 +1,33 @@
+# Core web app
+fastapi==0.128.0
+uvicorn==0.40.0
+python-multipart==0.0.21
+gradio==6.4.0
+pyngrok>=7.2,<8
+
+# Model runtime (CUDA 12.4 build, aligned with your working env)
+--extra-index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0+cu124
+torchaudio==2.6.0+cu124
+torchvision==0.21.0+cu124
+transformers==5.1.0
+accelerate==1.12.0
+huggingface-hub==1.4.1
+safetensors==0.7.0
+sentencepiece==0.2.1
+pillow==12.1.0
+numpy==2.2.6
+
+# Audio / TTS
+pydub==0.25.1
+edge-tts==7.2.7
+
+# RAG
+llama-index==0.14.12
+llama-index-embeddings-huggingface==0.6.1
+llama-index-vector-stores-faiss==0.5.2
+sentence-transformers>=3.0.0
+faiss-cpu==1.13.2
+pypdf==6.6.0
+
+# System dependency (not pip): ffmpeg
