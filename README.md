@@ -13,7 +13,7 @@ This repository currently focuses on a pneumonia ward workflow.
 
 ## 🖼️ Figures
 
-Real page screenshots (exported from `figures/page.pdf`):
+Real page screenshots:
 
 <table>
   <tr>
