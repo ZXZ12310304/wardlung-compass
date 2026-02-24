@@ -1,17 +1,19 @@
 ﻿# WardLung Compass (MedGemma Impact Challenge)
 
+> 🏥 Ward workflow • 🤖 Multimodal AI • 📚 RAG
+
 WardLung Compass is a ward-focused multi-role clinical collaboration prototype.
 It links patient self-reporting, nurse workflows, and doctor decision workflows in one closed loop, with multimodal AI support (text, voice, image, and RAG).
 
 This repository currently focuses on a pneumonia ward workflow.
 
-## 1. What This Project Solves
+## 🎯 1. What This Project Solves
 
 1. Patient side: unstructured symptom expression, weak recall of clinical instructions, and difficulty tracking daily status.
 2. Nurse side: triage, vitals/MAR recording, assessment generation, handover, and upward forwarding in one interface.
 3. Doctor side: quick 360 patient review (risk trends, evidence, gaps) and delivery of patient-readable plans.
 
-## 2. Tech Stack
+## 🧰 2. Tech Stack
 
 - Backend: Python, FastAPI, Uvicorn, SQLite
 - AI models:
@@ -21,7 +23,7 @@ This repository currently focuses on a pneumonia ward workflow.
   - RAG: LlamaIndex + HuggingFace Embedding + FAISS
 - Frontend: server-rendered HTML + vanilla JS (actions via `wlApi`)
 
-## 3. System Architecture
+## 🏗️ 3. System Architecture
 
 Core modules:
 
@@ -42,9 +44,9 @@ Main request flow (simplified):
 4. Business logic updates state/database and calls model tools when needed.
 5. Backend returns refreshed HTML fragment.
 
-## 4. Three-Side Capabilities
+## 👥 4. Three-Side Capabilities
 
-### 4.1 Patient App
+### 👤 4.1 Patient App
 
 Pages: `Dashboard`, `Daily Check`, `Care Cards`, `Chat`, `Inbox`, `Settings`
 
@@ -57,7 +59,7 @@ Core capabilities:
 5. Inbox acknowledgment and reply.
 6. Preference and password settings.
 
-### 4.2 Nurse Station
+### 🧑‍⚕️ 4.2 Nurse Station
 
 Pages: `Ward Dashboard`, `Vitals & MAR`, `Generate Assessment`, `Handover Summary`, `Nurse Inbox`, `Settings`
 
@@ -69,7 +71,7 @@ Core capabilities:
 4. SBAR handover summary generation/forwarding.
 5. Inbox request handling and upward forwarding.
 
-### 4.3 Doctor Console
+### 🩺 4.3 Doctor Console
 
 Pages: `Doctor Dashboard`, `Patient 360`, `Orders & Plan`, `Doctor Inbox`, `Settings`
 
@@ -81,7 +83,7 @@ Core capabilities:
 4. Inbox request handling and response.
 5. Patient/nurse account management in settings.
 
-## 5. Login and Accounts
+## 🔐 5. Login and Accounts
 
 - Password credentials are stored in `account_credentials` (hashed).
 - Login endpoint: `/api/login`.
@@ -108,7 +110,7 @@ Default password fallback variable:
 - All seeded accounts currently use: `Demo@123`
 - Users can also self-register from the login page via `Create account`
 
-## 6. Core APIs
+## 🔌 6. Core APIs
 
 - `GET /`
 - `POST /api/register`
@@ -125,7 +127,7 @@ Default password fallback variable:
 - `POST /api/handover_forward_image`
 - `POST /api/handover_forward_audio`
 
-## 7. Directory Structure
+## 🗂️ 7. Directory Structure
 
 ```text
 .
@@ -142,9 +144,9 @@ Default password fallback variable:
 └─ models
 ```
 
-## 8. Quick Start
+## 🚀 8. Quick Start
 
-### 8.1 Install dependencies
+### 📦 8.1 Install dependencies
 
 ```powershell
 pip install -r requirements.txt
@@ -154,7 +156,33 @@ System dependency:
 
 - `ffmpeg` (required by `pydub`)
 
-### 8.2 Run
+### 🔑 8.2 Hugging Face Access (Gated Models)
+
+This project downloads Hugging Face models over HTTPS via `transformers`/`huggingface_hub` (not SSH).
+
+If you see 401/403 when downloading `google/medgemma-1.5-4b-it`, `google/medsiglip-448`, or `google/medasr`, you likely need gated access:
+
+1. Log in on Hugging Face and open each model repo page.
+2. Complete the required action (e.g., "Agree and access", "Request access", or accept terms). Some models require approval.
+3. Create a Hugging Face Access Token (read scope is typically enough) and expose it to the app:
+
+```powershell
+# Current terminal only
+$env:HF_TOKEN="hf_xxx"
+
+# Or (fallback env var name also supported by this repo)
+$env:HUGGINGFACE_HUB_TOKEN="hf_xxx"
+```
+
+Persistent (Windows):
+
+```powershell
+setx HF_TOKEN "hf_xxx"
+```
+
+### ▶️ 8.3 Run
+
+Make sure `HF_TOKEN` (or `HUGGINGFACE_HUB_TOKEN`) is set before the first run if you need gated model access.
 
 ```powershell
 python app.py
@@ -162,7 +190,7 @@ python app.py
 
 Default URL: `http://localhost:8000/`
 
-## 9. Common Environment Variables
+## ⚙️ 9. Common Environment Variables
 
 Runtime/network:
 
@@ -189,3 +217,4 @@ Model behavior:
 Auth:
 
 - `DEMO_DEFAULT_PASSWORD`
+- `HF_TOKEN` (or `HUGGINGFACE_HUB_TOKEN`) for gated Hugging Face model downloads
