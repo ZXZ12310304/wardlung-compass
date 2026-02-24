@@ -7,6 +7,14 @@ It links patient self-reporting, nurse workflows, and doctor decision workflows 
 
 This repository currently focuses on a pneumonia ward workflow.
 
+## 🎬 Demo (YouTube)
+
+[![WardLung Compass demo video](https://img.youtube.com/vi/sfT0goJFcDs/hqdefault.jpg)](https://youtu.be/sfT0goJFcDs)
+
+## 🖼️ Figures
+
+- UI page mockups: [figures/page.pdf](figures/page.pdf)
+
 ## 🎯 1. What This Project Solves
 
 1. Patient side: unstructured symptom expression, weak recall of clinical instructions, and difficulty tracking daily status.
@@ -140,6 +148,7 @@ Default password fallback variable:
 │  ├─ tools
 │  ├─ ui
 │  └─ utils
+├─ figures
 ├─ data
 └─ models
 ```
@@ -218,3 +227,7 @@ Auth:
 
 - `DEMO_DEFAULT_PASSWORD`
 - `HF_TOKEN` (or `HUGGINGFACE_HUB_TOKEN`) for gated Hugging Face model downloads
+
+## 🔒 Do Not Commit
+
+Do not commit locally generated secrets/certificates (for example: `.gradio/certificate.pem`).

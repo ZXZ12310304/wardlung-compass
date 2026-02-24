@@ -1,0 +1,8 @@
+# Python caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local secrets / runtime artifacts (do not commit)
+.env
+.gradio/
