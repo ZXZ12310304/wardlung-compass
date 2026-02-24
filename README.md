@@ -13,7 +13,26 @@ This repository currently focuses on a pneumonia ward workflow.
 
 ## 🖼️ Figures
 
-- UI page mockups: [figures/page.pdf](figures/page.pdf)
+UI page mockups (exported from `figures/page.pdf`):
+
+<table>
+  <tr>
+    <td><img src="figures/pages/page_mockup_01.png" width="420" /></td>
+    <td><img src="figures/pages/page_mockup_02.png" width="420" /></td>
+  </tr>
+  <tr>
+    <td><img src="figures/pages/page_mockup_03.png" width="420" /></td>
+    <td><img src="figures/pages/page_mockup_04.png" width="420" /></td>
+  </tr>
+  <tr>
+    <td><img src="figures/pages/page_mockup_05.png" width="420" /></td>
+    <td><img src="figures/pages/page_mockup_06.png" width="420" /></td>
+  </tr>
+  <tr>
+    <td><img src="figures/pages/page_mockup_07.png" width="420" /></td>
+    <td><img src="figures/pages/page_mockup_08.png" width="420" /></td>
+  </tr>
+</table>
 
 ## 🎯 1. What This Project Solves
 
@@ -227,7 +246,3 @@ Auth:
 
 - `DEMO_DEFAULT_PASSWORD`
 - `HF_TOKEN` (or `HUGGINGFACE_HUB_TOKEN`) for gated Hugging Face model downloads
-
-## 🔒 Do Not Commit
-
-Do not commit locally generated secrets/certificates (for example: `.gradio/certificate.pem`).
